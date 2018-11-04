@@ -1,0 +1,20 @@
+{
+	"version": "1.0.0",
+	"source": "extend",
+	"embed": false,
+	"shy": false,
+	"main_class": "LockInactiveUsersController",
+	"controllers": {
+		"LockInactiveUsersController": "controllers/LockInactiveUsersController.php"
+	},
+	"objects": {
+		"InactiveUsersLocker": "objects/InactiveUsersLocker.php"
+	},
+	"custom_acl": [
+		"lock_inactive_users"
+	],
+	"controller_function_permissions": {
+		"LockInactiveUsersController::savePost": "lock_inactive_users"
+	},
+	"admin_permission": "lock_inactive_users"
+}

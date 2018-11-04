@@ -1,0 +1,12 @@
+{
+	"id": "lock_inactive_users",
+	"version": "1.0.0",
+	"description": "Lock inactive Users",
+	"categories": [
+		"admin"
+	],
+	"compatible_from": "2018.4",
+	"dependencies": [
+		"better_cron"
+	]
+}
