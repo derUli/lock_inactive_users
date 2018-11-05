@@ -1,10 +1,10 @@
 # lock\_inactive\_users
 
-## Beschreibung
+## Description
 
-Dies ist ein Modul für UliCMS, welches User-Accounts, die sich länger als X Tage nicht in das UliCMS Backend eingeloggt haben, automatisch sperrt.
+This is a module for UliCMS 2019.1 which locks the users which have not logged in to the backend since more than X days.
 
-## Voraussetzungen
+## Requirements
 
-* UliCMS 2019.1 oder neuer
-* better_cron 1.1 oder neuer
+* UliCMS 2018.4 or later
+* better_cron 1.1 or later
