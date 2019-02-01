@@ -22,7 +22,7 @@ echo ModuleHelper::buildMethodCallForm("LockInactiveUsersController", "save");
 		name="days" id="days"
 		value="<?php esc(intval(Settings::get("lock_inactive_users/days")));?>">
 </div>
-<button type="submit" class="btn btn-primary"><?php translate("save");?></button>
+<button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> <?php translate("save");?></button>
 <?php
 echo ModuleHelper::endForm();
 ?>

@@ -3,7 +3,7 @@
 class LockInactiveUsersController extends MainClass
 {
 
-    private const MODULE_NAME = "lock_inactive_users";
+    const MODULE_NAME = "lock_inactive_users";
 
     public function settings()
     {
