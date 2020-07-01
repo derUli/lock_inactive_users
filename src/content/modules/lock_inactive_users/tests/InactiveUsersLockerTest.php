@@ -1,10 +1,8 @@
 <?php
-use UliCMS\Exceptions\NotImplementedException;
 
 class InactiveUsersLockerTest extends \PHPUnit\Framework\TestCase
 {
-
-    protected function setUp()
+    protected function setUp(): void
     {
         // User without last login, must not be locked
         $user = new User();
@@ -45,7 +43,7 @@ class InactiveUsersLockerTest extends \PHPUnit\Framework\TestCase
         $user->save();
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         // delete test users
         Database::query("delete from `{prefix}users` where username like 'testuser%'", true);
@@ -82,10 +80,9 @@ class InactiveUsersLockerTest extends \PHPUnit\Framework\TestCase
         $testUser4 = new User();
         $testUser4->loadByUsername("testuser4");
         
-        $this->assertFalse($testUser1->getLocked());
-        $this->assertFalse($testUser2->getLocked());
-        $this->assertTrue($testUser3->getLocked());
-        $this->assertTrue($testUser4->getLocked());
+        $this->assertFalse($testUser1->isLocked());
+        $this->assertFalse($testUser2->isLocked());
+        $this->assertTrue($testUser3->isLocked());
+        $this->assertTrue($testUser4->isLocked());
     }
 }
-

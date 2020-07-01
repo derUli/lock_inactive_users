@@ -2,7 +2,6 @@
 
 class InactiveUsersLocker
 {
-
     private $days = 30;
 
     public function __construct($days)

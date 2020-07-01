@@ -1,6 +1,6 @@
 {
 	"id": "lock_inactive_users",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Lock inactive Users",
 	"categories": [
 		"admin"

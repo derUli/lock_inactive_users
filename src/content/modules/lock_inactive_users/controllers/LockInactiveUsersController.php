@@ -2,7 +2,6 @@
 
 class LockInactiveUsersController extends MainClass
 {
-
     const MODULE_NAME = "lock_inactive_users";
 
     public function settings()
@@ -15,11 +14,11 @@ class LockInactiveUsersController extends MainClass
     {
         $enable = intval(Request::getVar("enable"));
         $days = Request::getVar("days", 30, "int");
-        
+
         // Save settings
         Settings::set("lock_inactive_users/enable", $enable);
         Settings::set("lock_inactive_users/days", $days);
-        
+
         // Redirect to settings page and show success message.
         Response::redirect(ModuleHelper::buildAdminURL(self::MODULE_NAME, "save=1"));
     }
@@ -42,9 +41,13 @@ class LockInactiveUsersController extends MainClass
         if (Settings::get("lock_inactive_users/enable")) {
             // Use better_cron if installed to run the cronjob in a regular interval
             if (class_exists("BetterCron")) {
-                BetterCron::days("lock_inactive_users/cron", 1, function () {
-                    $this->deleteExpiredUsers();
-                });
+                BetterCron::days(
+                    "lock_inactive_users/cron",
+                    1,
+                    function () {
+                            $this->deleteExpiredUsers();
+                        }
+                );
             } else {
                 // if better_cron is not installed run the cronjob on every page load
                 // this may have a negative effect on site performance

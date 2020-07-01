@@ -3,16 +3,19 @@ if (Request::getVar("save")) {
     ?>
 <div class="alert alert-success lert-dismissable fade in">
 	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-	<?php translate("changes_was_saved");?>
+	<?php translate("changes_was_saved"); ?>
 	</div>
-<?php }?>
+<?php
+}?>
 <?php
 echo ModuleHelper::buildMethodCallForm("LockInactiveUsersController", "save");
 ?>
 <div class="checkbox">
 	<label class="form-check-label" for="enable"><input
 		class="form-check-input" type="checkbox" value="1" id="enable"
-		<?php if(Settings::get("lock_inactive_users/enable")) echo "checked";?>
+		<?php if (Settings::get("lock_inactive_users/enable")) {
+    echo "checked";
+}?>
 		name="enable"> 
 		<?php translate("enabled");?> </label>
 </div>
@@ -25,4 +28,3 @@ echo ModuleHelper::buildMethodCallForm("LockInactiveUsersController", "save");
 <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> <?php translate("save");?></button>
 <?php
 echo ModuleHelper::endForm();
-?>
